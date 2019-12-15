@@ -1,0 +1,40 @@
+Built using node.js v10.16.3
+Uses Jest for testing
+npm install will install jest
+To get all schedules, run `node WaterSchedule.js`
+
+To get one plant schedule, run `node WaterSchedule.js *name of plant*`
+Example: node WaterSchedule.js Snake Plant
+
+To run the test scripts, run `npm run test`
+
+Acceptance Criteria:
+-Will output all or one plant(s) schedule for the next 12 weeks
+-Avoids planting on weekends(Saturday, Sunday)
+-Takes into consideration the desired water time for each plant
+-If scheduled to water on Saturday, will water on Friday instead
+-If scheduled to water on Sunday, will water on Monday instead
+
+Time Complexity: O(n) --> for loop going through each plant,
+However, n is multiplied by the number of watering plant dates
+Space Complexity: O(n) --> Stores each Plant and its dates
+
+My Solution:
+-Check to see if the user inputs a plant name
+-If yes, checks to see if plant name is in json file and calls createSchedule if true
+-If no plant name, will create schedule for all plants in json file
+-Creates a lookup map for the water_after numbers. We can do this because
+all plants start on the same day.  The key would be the water_after number and
+the value would be an Array storing all of the dates.
+The program checks first to see if the key exists,
+If it does, use Array in the lookup table for the water_after key.
+If not, run the createSchedule function and then store all of the dates in the lookup table.
+
+Future Additional Features:
+-More Testing: More testing based on the scheduling and checking for edge cases
+-Create a UI: Simple Web application that could display a calendar that would show
+all of the days that the plants need to be watered.
+
+Unfortunately I found out about this opportunity a little towards the end of the week,
+and I have finals coming up, so I could only put so much time into this.  I had a great
+time coming up, implementing, and building my solution.
